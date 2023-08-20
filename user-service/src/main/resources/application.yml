@@ -18,7 +18,13 @@ logging:
 # 服务名称
 spring.application:
     name: userservice
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:10086/eureka
+spring.cloud:
+    nacos:
+      server-addr: localhost:8848
+      discovery:
+        #ephemeral: false # 设置为非临时实例
+        cluster-name: HZ # 集群名称-->杭州集群
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://127.0.0.1:10086/eureka

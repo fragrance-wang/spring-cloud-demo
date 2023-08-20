@@ -17,7 +17,18 @@ logging:
     dateformat: MM-dd HH:mm:ss:SSS
 spring.application:
     name: orderservice
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:10086/eureka
+spring.cloud:
+  nacos:
+    server-addr: localhost:8848
+    discovery:
+#     ephemeral: false # 设置为非临时实例
+      cluster-name: HZ # 集群名称
+# 默认的`ZoneAvoidanceRule`并不能实现根据同集群优先来实现负载均衡。
+# 因此Nacos中提供了一个`NacosRule`的实现，可以优先从同集群中挑选实例。
+userservice:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule # 负载均衡规则
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://127.0.0.1:10086/eureka
