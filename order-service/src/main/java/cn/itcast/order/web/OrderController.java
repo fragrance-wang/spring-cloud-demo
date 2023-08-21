@@ -1,12 +1,11 @@
 package cn.itcast.order.web;
 
 import cn.hutool.json.JSONUtil;
+import cn.itcast.feign.pojo.Order;
 import cn.itcast.order.config.WangshanConfiguration;
-import cn.itcast.order.pojo.Order;
 import cn.itcast.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +27,7 @@ public class OrderController {
      */
     @Autowired
     private WangshanConfiguration wangshanConfiguration;
+
 
     @GetMapping("/{orderId}")
     public Order queryOrderByUserId(@PathVariable("orderId") Long orderId) {

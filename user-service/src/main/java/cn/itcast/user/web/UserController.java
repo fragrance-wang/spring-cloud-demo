@@ -1,6 +1,6 @@
 package cn.itcast.user.web;
 
-import cn.itcast.user.pojo.User;
+import cn.itcast.feign.pojo.User;
 import cn.itcast.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
