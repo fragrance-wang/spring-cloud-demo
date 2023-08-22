@@ -4,6 +4,7 @@ import cn.hutool.json.JSONUtil;
 import cn.itcast.feign.pojo.Order;
 import cn.itcast.order.config.WangshanConfiguration;
 import cn.itcast.order.service.OrderService;
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +29,7 @@ public class OrderController {
     @Autowired
     private WangshanConfiguration wangshanConfiguration;
 
-
+    @SentinelResource("hot")//**注意事项**：热点参数限流对默认的SpringMVC资源无效，需要利用@SentinelResource注解标记资源
     @GetMapping("/{orderId}")
     public Order queryOrderByUserId(@PathVariable("orderId") Long orderId) {
         // 根据id查询订单并返回

@@ -4,6 +4,7 @@ import cn.itcast.feign.client.UserClient;
 import cn.itcast.feign.pojo.Order;
 import cn.itcast.feign.pojo.User;
 import cn.itcast.order.mapper.OrderMapper;
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,5 +32,13 @@ public class OrderService {
 
         // 4.返回
         return order;
+    }
+
+    /**
+     * 默认情况下，OrderService中的方法是不被Sentinel监控的，需要我们自己通过注解来标记要监控的方法。
+     */
+    @SentinelResource("goods")
+    public void queryGoods(){
+        System.err.println("查询商品");
     }
 }
