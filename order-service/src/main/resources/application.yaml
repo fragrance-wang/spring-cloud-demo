@@ -8,3 +8,6 @@ spring:
       #我们需要关闭这种对SpringMVC的资源聚合，修改order-service服务的application.yml文件：
       web-context-unify: false # 关闭context整合
 
+feign:
+  sentinel:
+    enabled: true # 开启feign对sentinel的支持
