@@ -3,3 +3,4 @@
 /order-service/target/
 /eureka-server/target/
 /gateway/target/
+/seata-demo/*/target/

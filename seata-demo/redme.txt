@@ -1,0 +1,5 @@
+seata-demo：父工程，负责管理项目依赖
+
+- account-service：账户服务，负责管理用户的资金账户。提供扣减余额的接口
+- storage-service：库存服务，负责管理商品库存。提供扣减库存的接口
+- seata-order-service：订单服务，负责管理订单。创建订单时，需要调用account-service和storage-service
